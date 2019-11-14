@@ -51,7 +51,7 @@ double simp(int n, int f, double left, double right) {
 
     int i;
 
-    double sum_0_n, ev_s = 0, od_s = 0,bk_x0,in_res,f0,fn,h,x0;
+    double sum_0_n, ev_s = 0, od_s = 0,in_res,f0,fn,h,x0;
 
     h = (right - left) / (double)n;
     x0 = left;
@@ -63,16 +63,14 @@ double simp(int n, int f, double left, double right) {
     printf("\nIntermediate calculations results\n");
     printf("h : %lf\tf0 : %lf\tfn : %lf \n",h,f0,fn);
 
-    for(i = 1,bk_x0 = x0 + h ; i <= n-1 ; i+=2, bk_x0 += 2*h) {
-        in_res = eval_f(f,bk_x0);
-        printf("fi : %lf\txi : %lf\ti : %d \n",in_res,bk_x0,i);
-        od_s += in_res;
-    }
 
-    for(i = 2, bk_x0 = x0 + 2*h; i<= n-2 ; i+=2 , bk_x0 += 2*h) {
-        in_res = eval_f(f,bk_x0);
-        printf("fi : %lf\txi : %lf\ti : %d \n",in_res,bk_x0,i);
-        ev_s += in_res;
+    for(i = 1,x0 = x0 + h ; i <= n-1 ; i++, x0 += h) {
+        in_res = eval_f(f,x0);
+        printf("fi : %lf\txi : %lf\ti : %d \n",in_res,x0,i);
+        if(i%2 == 1)
+            od_s += in_res;
+        else
+            ev_s += in_res;
     }
 
     printf("\n\n");
