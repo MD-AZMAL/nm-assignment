@@ -1,3 +1,12 @@
+/*
+    COMPOSITE INTEGRAL USING TRAPEZOIDAL AND SYMPSONS RULE
+    ------------------------------------------------------
+    Name : Md. Azmal
+    Regno : 1741012060
+    Branch : CSE 'F'
+    Semester : 5th
+*/
+
 #include<stdio.h>
 #include<math.h>
 
